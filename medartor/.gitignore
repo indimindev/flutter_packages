@@ -74,5 +74,5 @@ build/
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
-# not in library packages https://dart.dev/guides/libraries/private-files
+# not in library packages https://dart.dev/guides/libraries/private-files#pubspeclock
 pubspec.lock
