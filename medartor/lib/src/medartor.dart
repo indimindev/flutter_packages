@@ -22,14 +22,18 @@ class Medartor<T> {
     return _handlers.containsKey(key);
   }
 
-  Future<TResponse> send<TResponse>(IRequest<TResponse> request,
-      {String? key}) async {
+  Future<TResponse> send<TResponse>(
+    IRequest<TResponse> request, {
+    String? key,
+    Future<TResponse> Function(IRequest<TResponse> request)? defaultHandler,
+  }) async {
     var _hanlderKey = key ?? request.runtimeType.toString();
     var handler = _handlers[_hanlderKey];
-    if (handler == null) {
+    if ((handler ?? defaultHandler) == null) {
       throw Exception(
           "You must register handler for ${_hanlderKey} before calling this function");
     }
-    return await handler.handle(request) as TResponse;
+    return await (handler?.handle(request) ?? defaultHandler?.call(request))
+        as TResponse;
   }
 }

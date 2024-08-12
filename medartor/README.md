@@ -76,3 +76,19 @@ print(response); // print "Goodbye John!"
 ```
 
 a good way to implement it in an architecture is to instantiate it and register its handlers at startup in a dependency injector.
+
+
+The send function also supports a `default handler function`, which is executed in case the requested handler **is not registered**.
+
+```dart
+...
+// Send the message and get the response
+final response = await mediator.send(request, key: "goodbyeHandlerNotRegistered", 
+  defaultHandler: (request) {
+    return Future.value('Hello default handler');
+  }
+);
+
+// print the answer
+print(response); // print "Hello default handler"
+```

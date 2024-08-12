@@ -2,10 +2,10 @@ name: medartor
 description: Simple, unambitious CQRS mediator implementation, .NET MediatR inspired.
 homepage: https://github.com/indimindev
 repository: https://github.com/indimindev/flutter_packages/tree/main/medartor
-version: 0.0.1
+version: 1.0.0
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.12.0 <4.0.0"
 
 dependencies:
   flutter:
